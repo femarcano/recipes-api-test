@@ -60,6 +60,7 @@ export const recipeUpdate = async (req, res) => {
     })
     return
   }
+
   const recipeUpdateData = {
     title: req.body.title,
     making_time: req.body.making_time,
@@ -68,7 +69,7 @@ export const recipeUpdate = async (req, res) => {
     cost: req.body.cost
   }
 
-  Recipes.update(recipeUpdateData, {
+  Recipes.update({ ...recipeUpdateData, updated_at: models.sequelize.literal('CURRENT_TIMESTAMP') }, {
     where: { id: { [Op.eq]: id } }
   })
     .then(affectedCounts => {
