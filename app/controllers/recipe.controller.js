@@ -21,7 +21,7 @@ export const recipeCreate = async (req, res) => {
 
   Recipes.create(recipe)
     .then(data => res.send({
-      message: 'Recipe successfully created!', recipe: data
+      message: 'Recipe successfully created!', recipe: [data]
     }))
     .catch(() => res.status(404).send({
       message: 'Recipe creation failed!', required: 'title, making_time, serves, ingredients, cost'
@@ -44,9 +44,15 @@ export const recipeFindOne = async (req, res) => {
   }
 
   Recipes.findByPk(id)
-    .then(data => res.send({
-      message: 'Recipe details by id', recipe: data
-    }))
+    .then(data => {
+      if (data !== null) {
+        res.send({
+          message: 'Recipe details by id', recipe: [data]
+        })
+      } else {
+        throw new Error()
+      }
+    })
     .catch(() => res.status(404).send({
       message: 'data not found'
     }))
