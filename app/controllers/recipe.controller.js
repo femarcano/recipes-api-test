@@ -5,8 +5,9 @@ const Op = models.Sequelize.Op
 
 export const recipeCreate = async (req, res) => {
   if (!req.body.title || !req.body.making_time || !req.body.serves || !req.body.ingredients || (!req.body.cost && typeof req.body.cost === 'number')) {
-    res.status(404).send({
-      message: 'Recipe creation failed!', required: 'title, making_time, serves, ingredients, cost'
+    res.status(200).send({
+      message: 'Recipe creation failed!',
+      required: 'title, making_time, serves, ingredients, cost'
     })
     return
   }
@@ -23,7 +24,7 @@ export const recipeCreate = async (req, res) => {
     .then(data => res.send({
       message: 'Recipe successfully created!', recipe: [data]
     }))
-    .catch(() => res.status(404).send({
+    .catch(() => res.status(200).send({
       message: 'Recipe creation failed!', required: 'title, making_time, serves, ingredients, cost'
     }))
 }
