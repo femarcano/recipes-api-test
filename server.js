@@ -33,7 +33,7 @@ models.sequelize.sync({ force: eraseDatabaseOnSync })
   })
 
 app.get('/', (req, res) => {
-  res.json({ message: 'test from Fer' })
+  res.status(404).send()
 })
 
 const PORT = process.env.PORT || 3000
