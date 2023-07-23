@@ -8,6 +8,8 @@ export const DB = process.env.DATABASE_LOCAL_DB || process.env.DATABASE_DB
 export const DIALECT = process.env.DATABASE_LOCAL_DIALECT || process.env.DATABASE_DIALECT
 export const PORT = process.env.DATABASE_LOCAL_PORT || process.env.DATABASE_PORT
 
+export const USE_SSL = process.env.NODE_ENV === 'development'
+
 export const poolOptions = {
   max: 5,
   min: 0,

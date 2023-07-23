@@ -1,4 +1,4 @@
-import { DB, DIALECT, HOST, PASSWORD, poolOptions, PORT, USER } from '../../db.config.js'
+import { DB, DIALECT, HOST, PASSWORD, poolOptions, PORT, USE_SSL, USER } from '../../db.config.js'
 import { Sequelize } from 'sequelize'
 import { getRecipeModel } from './recipe.model.js'
 
@@ -8,7 +8,7 @@ const sequelize = new Sequelize(DB, USER, PASSWORD, {
   port: PORT,
   pool: poolOptions,
   dialectOptions: {
-    ssl: true
+    ssl: USE_SSL
   }
 })
 
