@@ -5,6 +5,7 @@ export const getRecipeModel = (sequelize, { DataTypes }) => {
       allowNull: false,
       validate: {
         notEmpty: true,
+        max: 100
       }
     },
     making_time: {
@@ -12,6 +13,7 @@ export const getRecipeModel = (sequelize, { DataTypes }) => {
       allowNull: false,
       validate: {
         notEmpty: true,
+        max: 100
       }
     },
     serves: {
@@ -19,6 +21,7 @@ export const getRecipeModel = (sequelize, { DataTypes }) => {
       allowNull: false,
       validate: {
         notEmpty: true,
+        max: 100
       }
     },
     ingredients: {
@@ -26,6 +29,7 @@ export const getRecipeModel = (sequelize, { DataTypes }) => {
       allowNull: false,
       validate: {
         notEmpty: true,
+        max: 300
       }
     },
     cost: {
@@ -33,6 +37,7 @@ export const getRecipeModel = (sequelize, { DataTypes }) => {
       allowNull: false,
       validate: {
         notEmpty: true,
+        isNumeric: true
       }
     },
     created_at: {
