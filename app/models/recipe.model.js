@@ -50,8 +50,10 @@ export const getRecipeModel = (sequelize, { DataTypes }) => {
       defaultValue: DataTypes.NOW,
       allowNull: false
     }
-  },{
-    timestamps: false
+  }, {
+    timestamps: false,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   })
   return Recipe
 }
