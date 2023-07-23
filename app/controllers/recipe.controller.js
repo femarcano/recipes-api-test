@@ -123,7 +123,7 @@ export const populateRecipeDatabaseAtStart = async () => {
     title: 'Rice Omelette',
     making_time: '30 min',
     serves: '2 people',
-    ingredients: 'onion, egg, seasoning, soy souce',
+    ingredients: 'onion, egg, seasoning, soy sauce',
     cost: 700,
     created_at: '2016-01-11 13:10:12',
     updated_at: '2016-01-11 13:10:12'
