@@ -6,6 +6,17 @@ import { populateRecipeDatabaseAtStart } from './app/controllers/recipe.controll
 
 const app = express()
 
+const setCache = (req, res, next) => {
+  const cachePeriod = 60 * 5
+  if (req.method === 'GET') {
+    res.set('Cache-control', `public, max-age=${cachePeriod}`)
+  } else {
+    res.set('Cache-control', 'no-store')
+  }
+
+  next()
+}
+
 const corsOptions = {
   origin: '*'
 }
@@ -15,6 +26,8 @@ app.use(cors(corsOptions))
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: true }))
+
+app.use(setCache)
 
 app.use(recipesRoutes)
 
